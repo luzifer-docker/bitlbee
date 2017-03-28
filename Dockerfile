@@ -1,13 +1,12 @@
 FROM debian:jessie
 
+ADD https://code.bitlbee.org/debian/release.key /tmp/bitlbee_release.key
+ADD bitlbee.list /etc/apt/sources.list.d/bitlbee.list
+
 RUN set -ex \
- && apt-get update \
- && apt-get install -y curl \
- && curl -sSL https://code.bitlbee.org/debian/release.key | apt-key add - \
- && echo "deb http://code.bitlbee.org/debian/master/jessie/amd64/ ./" > /etc/apt/sources.list.d/bitlbee \
+ && apt-key add /tmp/bitlbee_release.key \
  && apt-get update \
  && apt-get install -y bitlbee \
- && apt-get -y remove --purge curl \
  && apt-get -y autoremove
 
 ADD start.sh /usr/local/bin/start.sh
