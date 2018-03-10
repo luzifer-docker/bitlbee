@@ -1,2 +1,2 @@
-deb http://code.bitlbee.org/debian/master/jessie/amd64/ ./
+deb http://code.bitlbee.org/debian/master/stretch/amd64/ ./
 deb http://download.opensuse.org/repositories/home:/jgeboski/Debian_8.0 ./
